@@ -26,8 +26,8 @@
 1. 克隆项目到本地
 
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/bystart/firewalld-manager.git
+cd firewalld-manager
 ```
 
 2. 安装依赖

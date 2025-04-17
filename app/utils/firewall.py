@@ -216,12 +216,10 @@ class FirewallManager:
 
     def add_port_forward(self, port, to_port, to_addr, protocol='tcp'):
         """添加端口转发规则"""
-        # 确保协议是有效的值
         valid_protocols = ['tcp', 'udp', 'sctp', 'dccp']
         if protocol not in valid_protocols:
             protocol = 'tcp'  # 默认使用tcp协议
             
-        # 尝试使用不带引号的语法，分开参数
         cmd = f"firewall-cmd --permanent --add-forward-port=port={port}:proto={protocol}:toport={to_port}:toaddr={to_addr}"
         result = self._run_command(cmd, shell=True)
         
@@ -252,7 +250,6 @@ class FirewallManager:
         if protocol not in valid_protocols:
             protocol = 'tcp'  # 默认使用tcp协议
             
-        # 尝试使用不带引号的语法，分开参数
         cmd = f"firewall-cmd --permanent --remove-forward-port=port={port}:proto={protocol}:toport={to_port}:toaddr={to_addr}"
         result = self._run_command(cmd, shell=True)
         
